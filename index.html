@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Disposable Email</title>
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        #email-box { font-weight: bold; margin-top: 10px; }
+        #messages { margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Disposable Email</h1>
+    <button onclick="generateEmail()">Generate Email</button>
+    <div id="email-box"></div>
+
+    <h2>Messages</h2>
+    <div id="messages">No messages yet.</div>
+
+    <script>
+        let currentEmail = "";
+
+        async function generateEmail() {
+            const res = await fetch('/generate-email');
+            const data = await res.json();
+            currentEmail = data.email;
+            document.getElementById("email-box").innerText = "Your email: " + currentEmail;
+            pollMessages();
+        }
+
+        async function pollMessages() {
+            setInterval(async () => {
+                if (!currentEmail) return;
+                const res = await fetch(`/messages/${currentEmail}`);
+                const data = await res.json();
+                const messages = data.messages.map(m => `<p><strong>${m.from}</strong>: ${m.subject}</p>`).join('');
+                document.getElementById("messages").innerHTML = messages || "No messages yet.";
+            }, 5000);
+        }
+    </script>
+</body>
+</html>
