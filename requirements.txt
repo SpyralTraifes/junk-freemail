@@ -3,4 +3,3 @@ uvicorn[standard]
 redis[async]
 aiofiles
 python-multipart
-email-parser
