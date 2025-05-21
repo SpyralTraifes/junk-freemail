@@ -6,7 +6,7 @@ EMAIL_TTL = 600  # 10 minutes in seconds
 
 def generate_email():
     local_part = uuid.uuid4().hex[:8]
-    domain = "yourdomain.com"
+    domain = "junkfreemail.com"
     address = f"{local_part}@{domain}"
     r.setex(address, EMAIL_TTL, "[]")  # store empty inbox
     return address
