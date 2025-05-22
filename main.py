@@ -10,7 +10,7 @@ REDIS_URL = os.getenv("REDIS_URL", "redis://localhost:6379")
 r = redis.from_url(REDIS_URL, decode_responses=True)
 
 app = FastAPI()
-app.mount("/", StaticFiles(directory=".", html=True), name="static")
+app.mount("/static", StaticFiles(directory="static", html=True), name="static")
 
 EMAIL_DOMAIN = "tempmail.render"  # temporary domain name
 
