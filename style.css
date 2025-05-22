@@ -1,0 +1,63 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f6fa;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 600px;
+  margin: 50px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+h1 {
+  color: #333;
+}
+
+.email-box {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+input#email {
+  flex: 1;
+  padding: 10px;
+  font-size: 1rem;
+}
+
+button {
+  padding: 10px 12px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+
+#messages {
+  text-align: left;
+  margin-top: 20px;
+}
+
+#messageList {
+  list-style-type: none;
+  padding: 0;
+}
+
+#messageList li {
+  background: #ecf0f1;
+  margin: 8px 0;
+  padding: 10px;
+  border-radius: 4px;
+}
